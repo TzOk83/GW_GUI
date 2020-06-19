@@ -207,6 +207,7 @@ namespace GW_GUI
             btnRead.Enabled = status;
             btnWrite.Enabled = status;
             btnErase.Enabled = status;
+            btnInfo.Enabled = status;
             pnlSetup.Enabled = status;
         }
 
@@ -221,7 +222,7 @@ namespace GW_GUI
                 strImageName = saveFileDialog1.FileName;
                 tsslStatus.Text = "Reading...";
                 cleanExit = true;
-                RunCmdAsync("gw", "read --scyl " + numStart.Value.ToString() + " --ecyl " + numEnd.Value.ToString() + (rbSingle.Checked ? " --single-sided" : "") + " \"" + strImageName + "\"");
+                RunCmdAsync("gw", "read --revs " + numPasses.Value.ToString() + " --scyl " + numStart.Value.ToString() + " --ecyl " + numEnd.Value.ToString() + (rbSingle.Checked ? " --single-sided" : "") + " --rate " + (rbDD.Checked ? "250" : "500")  + " \"" + strImageName + "\"");
             }
             else
             {
@@ -321,6 +322,18 @@ namespace GW_GUI
             rbSingle.Checked = true;
             numStart.Value = 0;
             numEnd.Value = 81;
+        }
+
+        private void rbDD_CheckedChanged(object sender, EventArgs e)
+        {
+            rbDD.ForeColor = System.Drawing.SystemColors.Control;
+            rbHD.ForeColor = System.Drawing.SystemColors.ControlText;
+        }
+
+        private void rbHD_CheckedChanged(object sender, EventArgs e)
+        {
+            rbHD.ForeColor = System.Drawing.SystemColors.Control;
+            rbDD.ForeColor = System.Drawing.SystemColors.ControlText;
         }
     }
 }
