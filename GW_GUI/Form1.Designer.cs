@@ -44,39 +44,39 @@
             this.rbDS80 = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.pnlDiskConfig = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.btnErase = new System.Windows.Forms.Button();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnInfo = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.rbDouble = new System.Windows.Forms.RadioButton();
-            this.rbSingle = new System.Windows.Forms.RadioButton();
-            this.label3 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.numStart = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.numEnd = new System.Windows.Forms.NumericUpDown();
-            this.label5 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.numPasses = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.rbHD = new System.Windows.Forms.RadioButton();
             this.rbDD = new System.Windows.Forms.RadioButton();
             this.label6 = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label7 = new System.Windows.Forms.Label();
-            this.numPasses = new System.Windows.Forms.NumericUpDown();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.numEnd = new System.Windows.Forms.NumericUpDown();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.numStart = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.rbDouble = new System.Windows.Forms.RadioButton();
+            this.rbSingle = new System.Windows.Forms.RadioButton();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.btnErase = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.btnInfo = new System.Windows.Forms.Button();
             this.statusStrip1.SuspendLayout();
             this.pnlSetup.SuspendLayout();
             this.pnlPresets.SuspendLayout();
             this.pnlDiskConfig.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numStart)).BeginInit();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numEnd)).BeginInit();
-            this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numPasses)).BeginInit();
+            this.panel5.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numEnd)).BeginInit();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numStart)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnRead
@@ -180,12 +180,12 @@
             this.rbSS82.Appearance = System.Windows.Forms.Appearance.Button;
             this.rbSS82.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rbSS82.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rbSS82.Location = new System.Drawing.Point(16, 120);
+            this.rbSS82.Location = new System.Drawing.Point(16, 110);
             this.rbSS82.Name = "rbSS82";
             this.rbSS82.Size = new System.Drawing.Size(100, 23);
             this.rbSS82.TabIndex = 4;
             this.rbSS82.TabStop = true;
-            this.rbSS82.Text = "> SS | 82";
+            this.rbSS82.Text = "> SSDD | 82";
             this.rbSS82.UseVisualStyleBackColor = true;
             this.rbSS82.CheckedChanged += new System.EventHandler(this.rbSS82_CheckedChanged);
             // 
@@ -194,12 +194,12 @@
             this.rbDS82.Appearance = System.Windows.Forms.Appearance.Button;
             this.rbDS82.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rbDS82.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rbDS82.Location = new System.Drawing.Point(16, 91);
+            this.rbDS82.Location = new System.Drawing.Point(16, 81);
             this.rbDS82.Name = "rbDS82";
             this.rbDS82.Size = new System.Drawing.Size(100, 23);
             this.rbDS82.TabIndex = 3;
             this.rbDS82.TabStop = true;
-            this.rbDS82.Text = "> DS | 82";
+            this.rbDS82.Text = "> DSDD | 82";
             this.rbDS82.UseVisualStyleBackColor = true;
             this.rbDS82.CheckedChanged += new System.EventHandler(this.rbDS82_CheckedChanged);
             // 
@@ -208,12 +208,12 @@
             this.rbSS80.Appearance = System.Windows.Forms.Appearance.Button;
             this.rbSS80.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rbSS80.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rbSS80.Location = new System.Drawing.Point(16, 62);
+            this.rbSS80.Location = new System.Drawing.Point(16, 53);
             this.rbSS80.Name = "rbSS80";
             this.rbSS80.Size = new System.Drawing.Size(100, 23);
             this.rbSS80.TabIndex = 2;
             this.rbSS80.TabStop = true;
-            this.rbSS80.Text = "> SS | 80";
+            this.rbSS80.Text = "> SSDD | 80";
             this.rbSS80.UseVisualStyleBackColor = true;
             this.rbSS80.CheckedChanged += new System.EventHandler(this.rbSS80_CheckedChanged);
             // 
@@ -222,12 +222,12 @@
             this.rbDS80.Appearance = System.Windows.Forms.Appearance.Button;
             this.rbDS80.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rbDS80.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rbDS80.Location = new System.Drawing.Point(16, 33);
+            this.rbDS80.Location = new System.Drawing.Point(16, 25);
             this.rbDS80.Name = "rbDS80";
             this.rbDS80.Size = new System.Drawing.Size(100, 23);
             this.rbDS80.TabIndex = 1;
             this.rbDS80.TabStop = true;
-            this.rbDS80.Text = "> DS | 80";
+            this.rbDS80.Text = "> DSDD | 80";
             this.rbDS80.UseVisualStyleBackColor = true;
             this.rbDS80.CheckedChanged += new System.EventHandler(this.rbDS80_CheckedChanged);
             // 
@@ -255,44 +255,166 @@
             this.pnlDiskConfig.Size = new System.Drawing.Size(252, 171);
             this.pnlDiskConfig.TabIndex = 0;
             // 
-            // label1
+            // panel6
             // 
-            this.label1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(244, 20);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Disk Configuration";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.panel6.Controls.Add(this.numPasses);
+            this.panel6.Controls.Add(this.label7);
+            this.panel6.Location = new System.Drawing.Point(3, 135);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(244, 26);
+            this.panel6.TabIndex = 17;
             // 
-            // btnErase
+            // numPasses
             // 
-            this.btnErase.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnErase.Location = new System.Drawing.Point(284, 202);
-            this.btnErase.Name = "btnErase";
-            this.btnErase.Size = new System.Drawing.Size(130, 40);
-            this.btnErase.TabIndex = 10;
-            this.btnErase.Text = "&Erase Disk";
-            this.btnErase.UseVisualStyleBackColor = true;
-            this.btnErase.Click += new System.EventHandler(this.btnErase_Click);
+            this.numPasses.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numPasses.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numPasses.Location = new System.Drawing.Point(106, 2);
+            this.numPasses.Maximum = new decimal(new int[] {
+            9,
+            0,
+            0,
+            0});
+            this.numPasses.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numPasses.Name = "numPasses";
+            this.numPasses.Size = new System.Drawing.Size(110, 23);
+            this.numPasses.TabIndex = 14;
+            this.numPasses.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numPasses.Value = new decimal(new int[] {
+            3,
+            0,
+            0,
+            0});
             // 
-            // openFileDialog1
+            // label7
             // 
-            this.openFileDialog1.DefaultExt = "scp";
-            this.openFileDialog1.Filter = "SuperCard Pro|*.scp|Interchangeable Preservation Format|*.ipf|HxC Floppy Emulator" +
-    "|*.hfe|All files|*.*";
-            this.openFileDialog1.Title = "Open Disk Image...";
+            this.label7.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label7.Location = new System.Drawing.Point(0, 2);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(100, 23);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "&Passes";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnInfo
+            // panel5
             // 
-            this.btnInfo.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnInfo.Location = new System.Drawing.Point(530, 202);
-            this.btnInfo.Name = "btnInfo";
-            this.btnInfo.Size = new System.Drawing.Size(130, 40);
-            this.btnInfo.TabIndex = 11;
-            this.btnInfo.Text = "&HW Info";
-            this.btnInfo.UseVisualStyleBackColor = true;
-            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
+            this.panel5.Controls.Add(this.rbHD);
+            this.panel5.Controls.Add(this.rbDD);
+            this.panel5.Controls.Add(this.label6);
+            this.panel5.Location = new System.Drawing.Point(3, 107);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(244, 26);
+            this.panel5.TabIndex = 16;
+            // 
+            // rbHD
+            // 
+            this.rbHD.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbHD.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.ControlText;
+            this.rbHD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbHD.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.rbHD.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.rbHD.Location = new System.Drawing.Point(166, 2);
+            this.rbHD.Name = "rbHD";
+            this.rbHD.Size = new System.Drawing.Size(50, 23);
+            this.rbHD.TabIndex = 15;
+            this.rbHD.Text = "HD";
+            this.rbHD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rbHD.UseVisualStyleBackColor = true;
+            this.rbHD.CheckedChanged += new System.EventHandler(this.rbHD_CheckedChanged);
+            // 
+            // rbDD
+            // 
+            this.rbDD.Appearance = System.Windows.Forms.Appearance.Button;
+            this.rbDD.Checked = true;
+            this.rbDD.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.ControlText;
+            this.rbDD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbDD.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.rbDD.ForeColor = System.Drawing.SystemColors.Control;
+            this.rbDD.Location = new System.Drawing.Point(106, 2);
+            this.rbDD.Name = "rbDD";
+            this.rbDD.Size = new System.Drawing.Size(50, 23);
+            this.rbDD.TabIndex = 14;
+            this.rbDD.TabStop = true;
+            this.rbDD.Text = "DD";
+            this.rbDD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.rbDD.UseVisualStyleBackColor = true;
+            this.rbDD.CheckedChanged += new System.EventHandler(this.rbDD_CheckedChanged);
+            // 
+            // label6
+            // 
+            this.label6.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.Location = new System.Drawing.Point(0, 2);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(100, 23);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "&Density";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.numEnd);
+            this.panel4.Controls.Add(this.label5);
+            this.panel4.Location = new System.Drawing.Point(3, 79);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(244, 26);
+            this.panel4.TabIndex = 15;
+            // 
+            // numEnd
+            // 
+            this.numEnd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numEnd.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numEnd.Location = new System.Drawing.Point(106, 1);
+            this.numEnd.Name = "numEnd";
+            this.numEnd.Size = new System.Drawing.Size(110, 23);
+            this.numEnd.TabIndex = 9;
+            this.numEnd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numEnd.Value = new decimal(new int[] {
+            79,
+            0,
+            0,
+            0});
+            // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label5.Location = new System.Drawing.Point(0, 1);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(100, 23);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "E&nd at";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.numStart);
+            this.panel3.Controls.Add(this.label4);
+            this.panel3.Location = new System.Drawing.Point(3, 51);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(244, 26);
+            this.panel3.TabIndex = 14;
+            // 
+            // numStart
+            // 
+            this.numStart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.numStart.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numStart.Location = new System.Drawing.Point(106, 2);
+            this.numStart.Name = "numStart";
+            this.numStart.Size = new System.Drawing.Size(110, 23);
+            this.numStart.TabIndex = 8;
+            this.numStart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.Location = new System.Drawing.Point(0, 2);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 23);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "S&tart at";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // panel2
             // 
@@ -344,169 +466,47 @@
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(100, 23);
             this.label3.TabIndex = 10;
-            this.label3.Text = "Sides";
+            this.label3.Text = "&Sides";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // panel3
+            // label1
             // 
-            this.panel3.Controls.Add(this.numStart);
-            this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(3, 51);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(244, 26);
-            this.panel3.TabIndex = 14;
+            this.label1.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(244, 20);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Disk Configuration";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // numStart
+            // btnErase
             // 
-            this.numStart.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numStart.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numStart.Location = new System.Drawing.Point(106, 2);
-            this.numStart.Name = "numStart";
-            this.numStart.Size = new System.Drawing.Size(110, 23);
-            this.numStart.TabIndex = 8;
-            this.numStart.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btnErase.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnErase.Location = new System.Drawing.Point(284, 202);
+            this.btnErase.Name = "btnErase";
+            this.btnErase.Size = new System.Drawing.Size(130, 40);
+            this.btnErase.TabIndex = 10;
+            this.btnErase.Text = "&Erase Disk";
+            this.btnErase.UseVisualStyleBackColor = true;
+            this.btnErase.Click += new System.EventHandler(this.btnErase_Click);
             // 
-            // label4
+            // openFileDialog1
             // 
-            this.label4.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.Location = new System.Drawing.Point(0, 2);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 23);
-            this.label4.TabIndex = 7;
-            this.label4.Text = "Start at";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.openFileDialog1.DefaultExt = "scp";
+            this.openFileDialog1.Filter = "SuperCard Pro|*.scp|Interchangeable Preservation Format|*.ipf|HxC Floppy Emulator" +
+    "|*.hfe|All files|*.*";
+            this.openFileDialog1.Title = "Open Disk Image...";
             // 
-            // panel4
+            // btnInfo
             // 
-            this.panel4.Controls.Add(this.numEnd);
-            this.panel4.Controls.Add(this.label5);
-            this.panel4.Location = new System.Drawing.Point(3, 79);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(244, 26);
-            this.panel4.TabIndex = 15;
-            // 
-            // numEnd
-            // 
-            this.numEnd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numEnd.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numEnd.Location = new System.Drawing.Point(106, 1);
-            this.numEnd.Name = "numEnd";
-            this.numEnd.Size = new System.Drawing.Size(110, 23);
-            this.numEnd.TabIndex = 9;
-            this.numEnd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numEnd.Value = new decimal(new int[] {
-            79,
-            0,
-            0,
-            0});
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(0, 1);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(100, 23);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "End at";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.rbHD);
-            this.panel5.Controls.Add(this.rbDD);
-            this.panel5.Controls.Add(this.label6);
-            this.panel5.Location = new System.Drawing.Point(3, 106);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(244, 26);
-            this.panel5.TabIndex = 16;
-            // 
-            // rbHD
-            // 
-            this.rbHD.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbHD.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.ControlText;
-            this.rbHD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbHD.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rbHD.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.rbHD.Location = new System.Drawing.Point(166, 2);
-            this.rbHD.Name = "rbHD";
-            this.rbHD.Size = new System.Drawing.Size(50, 23);
-            this.rbHD.TabIndex = 15;
-            this.rbHD.Text = "HD";
-            this.rbHD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbHD.UseVisualStyleBackColor = true;
-            this.rbHD.CheckedChanged += new System.EventHandler(this.rbHD_CheckedChanged);
-            // 
-            // rbDD
-            // 
-            this.rbDD.Appearance = System.Windows.Forms.Appearance.Button;
-            this.rbDD.Checked = true;
-            this.rbDD.FlatAppearance.CheckedBackColor = System.Drawing.SystemColors.ControlText;
-            this.rbDD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbDD.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rbDD.ForeColor = System.Drawing.SystemColors.Control;
-            this.rbDD.Location = new System.Drawing.Point(106, 2);
-            this.rbDD.Name = "rbDD";
-            this.rbDD.Size = new System.Drawing.Size(50, 23);
-            this.rbDD.TabIndex = 14;
-            this.rbDD.TabStop = true;
-            this.rbDD.Text = "DD";
-            this.rbDD.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.rbDD.UseVisualStyleBackColor = true;
-            this.rbDD.CheckedChanged += new System.EventHandler(this.rbDD_CheckedChanged);
-            // 
-            // label6
-            // 
-            this.label6.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.Location = new System.Drawing.Point(0, 2);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(100, 23);
-            this.label6.TabIndex = 13;
-            this.label6.Text = "Density";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.numPasses);
-            this.panel6.Controls.Add(this.label7);
-            this.panel6.Location = new System.Drawing.Point(3, 134);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(244, 26);
-            this.panel6.TabIndex = 17;
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.Location = new System.Drawing.Point(0, 2);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(100, 23);
-            this.label7.TabIndex = 13;
-            this.label7.Text = "Passes";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // numPasses
-            // 
-            this.numPasses.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.numPasses.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numPasses.Location = new System.Drawing.Point(106, 2);
-            this.numPasses.Maximum = new decimal(new int[] {
-            9,
-            0,
-            0,
-            0});
-            this.numPasses.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numPasses.Name = "numPasses";
-            this.numPasses.Size = new System.Drawing.Size(110, 23);
-            this.numPasses.TabIndex = 14;
-            this.numPasses.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.numPasses.Value = new decimal(new int[] {
-            3,
-            0,
-            0,
-            0});
+            this.btnInfo.Font = new System.Drawing.Font("Consolas", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnInfo.Location = new System.Drawing.Point(530, 202);
+            this.btnInfo.Name = "btnInfo";
+            this.btnInfo.Size = new System.Drawing.Size(130, 40);
+            this.btnInfo.TabIndex = 11;
+            this.btnInfo.Text = "&HW Info";
+            this.btnInfo.UseVisualStyleBackColor = true;
+            this.btnInfo.Click += new System.EventHandler(this.btnInfo_Click);
             // 
             // Form1
             // 
@@ -534,14 +534,14 @@
             this.pnlSetup.ResumeLayout(false);
             this.pnlPresets.ResumeLayout(false);
             this.pnlDiskConfig.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numStart)).EndInit();
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numEnd)).EndInit();
-            this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numPasses)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numEnd)).EndInit();
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numStart)).EndInit();
+            this.panel2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

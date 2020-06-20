@@ -17,7 +17,11 @@ namespace GW_GUI
 {
     public partial class Form1 : Form
     {
+        static byte maxTrack = 87;
+        static byte maxSide = 2;
+
         bool cleanExit = true;
+        byte[,] trackMap = new byte[maxTrack, maxSide];
 
         private delegate void SetControlPropertyThreadSafeDelegate(Control control, string propertyName, object propertyValue);
 
@@ -56,6 +60,12 @@ namespace GW_GUI
             g.DrawLine(p, 0, 0, numOfCells * cellWidth, 0);
             g.DrawLine(p, 0, cellHeight, numOfCells * cellWidth, cellHeight);
             g.DrawLine(p, 0, rowCount * cellHeight, numOfCells * cellWidth, rowCount * cellHeight);
+            // Redraw Track Map
+            for (byte track = 0; track < maxTrack; track++)
+                for (byte side = 0; side < maxSide; side++)
+                {
+                    DrawSector(track, side, trackMap[track, side]);
+                }
         }
 
         public void DrawSector(byte track, byte side, byte mode)
@@ -84,6 +94,16 @@ namespace GW_GUI
             g.FillRectangle(b, rect);
         }
 
+        public void ClearGrid()
+        {
+            for (byte sector=0; sector<maxTrack; sector++)
+                for (byte side=0; side<maxSide; side++)
+                {
+                    trackMap[sector, side] = 0;
+                }
+            DrawGrid();
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -96,7 +116,7 @@ namespace GW_GUI
 
         public void RunCmdAsync(string cmd, string args)
         {
-            //* Create your Process
+            // Create Process
             Process process = new Process();
             process.StartInfo.FileName = @"python.exe";
             process.StartInfo.Arguments = string.Format("-u \"{0}\" {1}", cmd, args);
@@ -105,20 +125,17 @@ namespace GW_GUI
             process.StartInfo.RedirectStandardOutput = true;
             process.StartInfo.RedirectStandardError = false;
             process.OutputDataReceived += new DataReceivedEventHandler(OutputHandler);
-            //process.ErrorDataReceived += new DataReceivedEventHandler(OutputHandler);
             process.Exited += new EventHandler(ProcessExited);
             process.StartInfo.RedirectStandardInput = true;
             process.EnableRaisingEvents = true;
             process.Start();
-            //string err = process.StandardError.ReadToEnd();
             process.BeginOutputReadLine();
-            //process.BeginErrorReadLine();
         }
 
         public string RunCmdSync(string cmd, string args)
         {
             string result;
-            //* Create your Process
+            // Create Process
             Process process = new Process();
             process.StartInfo.FileName = @"python.exe";
             process.StartInfo.Arguments = string.Format("-u \"{0}\" {1}", cmd, args);
@@ -130,9 +147,6 @@ namespace GW_GUI
             process.Start();
             result = process.StandardOutput.ReadToEnd();
             process.WaitForExit();
-            //string err = process.StandardError.ReadToEnd();
-            //process.BeginOutputReadLine();
-            //process.BeginErrorReadLine();
             return result;
         }
 
@@ -157,6 +171,7 @@ namespace GW_GUI
                 byte.TryParse(tracks, out track);
                 byte.TryParse(sides, out side);
                 tsslStatus.Text = output;
+                trackMap[track, side] = 1;
                 DrawSector(track, side, 1);
             }
             if (output != null && output.Contains("Command Failed"))
@@ -164,6 +179,7 @@ namespace GW_GUI
                 errors = output.Substring(output.IndexOf("Command Failed"));
                 tsslStatus.Text = errors;
                 cleanExit = false;
+                trackMap[track, side] = 3;
                 DrawSector(track, side, 3);
             }
         }
@@ -215,7 +231,7 @@ namespace GW_GUI
         {
             EnableControls(false);
             panel1.Refresh();
-            DrawGrid();
+            ClearGrid();
             string strImageName;
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -234,7 +250,7 @@ namespace GW_GUI
         {
             EnableControls(false);
             panel1.Refresh();
-            DrawGrid();
+            ClearGrid();
             string strImageName;
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -260,7 +276,7 @@ namespace GW_GUI
         {
             EnableControls(false);
             panel1.Refresh();
-            DrawGrid();
+            ClearGrid();
             if (MessageBox.Show("Are you sure do you want to ERASE content of the floppy disk?", "Erase Disk", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 tsslStatus.Text = "Erasing...";
