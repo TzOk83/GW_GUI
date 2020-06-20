@@ -180,7 +180,7 @@
             this.rbSS82.Appearance = System.Windows.Forms.Appearance.Button;
             this.rbSS82.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rbSS82.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.rbSS82.Location = new System.Drawing.Point(16, 110);
+            this.rbSS82.Location = new System.Drawing.Point(16, 109);
             this.rbSS82.Name = "rbSS82";
             this.rbSS82.Size = new System.Drawing.Size(100, 23);
             this.rbSS82.TabIndex = 4;
@@ -366,7 +366,7 @@
             // 
             this.numEnd.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.numEnd.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numEnd.Location = new System.Drawing.Point(106, 1);
+            this.numEnd.Location = new System.Drawing.Point(106, 2);
             this.numEnd.Name = "numEnd";
             this.numEnd.Size = new System.Drawing.Size(110, 23);
             this.numEnd.TabIndex = 9;
@@ -380,7 +380,7 @@
             // label5
             // 
             this.label5.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.Location = new System.Drawing.Point(0, 1);
+            this.label5.Location = new System.Drawing.Point(0, 2);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(100, 23);
             this.label5.TabIndex = 8;

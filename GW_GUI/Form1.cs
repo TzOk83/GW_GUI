@@ -19,9 +19,13 @@ namespace GW_GUI
     {
         static byte maxTrack = 87;
         static byte maxSide = 2;
+        static int cellHeight = 80;
+        static int cellWidth = 9;
 
         bool cleanExit = true;
         byte[,] trackMap = new byte[maxTrack, maxSide];
+
+        Process gwProcess;
 
         private delegate void SetControlPropertyThreadSafeDelegate(Control control, string propertyName, object propertyValue);
 
@@ -44,52 +48,51 @@ namespace GW_GUI
             Font f = new Font(FontFamily.GenericMonospace, 8);
             SolidBrush b = new SolidBrush(Color.Black);
             StringFormat df = new StringFormat();
-            int numOfCells = 87;
-            int cellHeight = 80;
-            int cellWidth = 9;
-            int rowCount = 2;
-            for (int i = 0; i <= numOfCells; i++)
+            
+            for (int i = 0; i <= maxTrack; i++)
             {
                 // Vertical
-                g.DrawLine(p, i * cellWidth, 0, i * cellWidth, rowCount * cellHeight);
+                g.DrawLine(p, i * cellWidth, 0, i * cellWidth, maxSide * cellHeight);
                 // Text
                 g.DrawString((i / 10).ToString(), f, b, i * cellWidth, 162, df);
                 g.DrawString((i % 10).ToString(), f, b, i * cellWidth, 172, df);
             }
             // Horizontal
-            g.DrawLine(p, 0, 0, numOfCells * cellWidth, 0);
-            g.DrawLine(p, 0, cellHeight, numOfCells * cellWidth, cellHeight);
-            g.DrawLine(p, 0, rowCount * cellHeight, numOfCells * cellWidth, rowCount * cellHeight);
+            g.DrawLine(p, 0, 0, maxTrack * cellWidth, 0);
+            g.DrawLine(p, 0, cellHeight, maxTrack * cellWidth, cellHeight);
+            g.DrawLine(p, 0, maxSide * cellHeight, maxTrack * cellWidth, maxSide * cellHeight);
+            
             // Redraw Track Map
-            for (byte track = 0; track < maxTrack; track++)
-                for (byte side = 0; side < maxSide; side++)
+            for (byte track = 0; track < Form1.maxTrack; track++)
+                for (byte side = 0; side < Form1.maxSide; side++)
                 {
                     DrawSector(track, side, trackMap[track, side]);
                 }
         }
 
-        public void DrawSector(byte track, byte side, byte mode)
+        public void DrawSector(byte track, byte side, byte mode, bool updateMap = false)
         {
             Graphics g = panel1.CreateGraphics();
             SolidBrush b;
+
+            if (updateMap) trackMap[track, side] = mode;
+
             switch (mode)
             {
-                case 1:
+                case 1: // Read OK
                     b = new SolidBrush(Color.Gray);
                     break;
-                case 2:
+                case 2: // Write OK
                     b = new SolidBrush(Color.Black);
                     break;
-                case 3:
+                case 3: // Error
                     b = new SolidBrush(Color.Red);
                     break;
-                default:
+                default: // Empty
                     b = new SolidBrush(Color.White);
                     break;
             }
-            int cellHeight = 80;
-            int cellWidth = 9;
-
+            
             Rectangle rect = new Rectangle(2 + (track * cellWidth), 2 + (side * cellHeight), 6, 77);
             g.FillRectangle(b, rect);
         }
@@ -114,7 +117,7 @@ namespace GW_GUI
             DrawGrid();
         }
 
-        public void RunCmdAsync(string cmd, string args)
+        public Process RunCmdAsync(string cmd, string args)
         {
             // Create Process
             Process process = new Process();
@@ -130,6 +133,7 @@ namespace GW_GUI
             process.EnableRaisingEvents = true;
             process.Start();
             process.BeginOutputReadLine();
+            return process;
         }
 
         public string RunCmdSync(string cmd, string args)
@@ -162,25 +166,30 @@ namespace GW_GUI
         void OutputHandler(object sendingProcess, DataReceivedEventArgs outLine)
         {
             byte track = 0, side = 0;
-            string tracks, sides, errors;
+            string tracks, sides;
             string output = Convert.ToString(outLine.Data);
+
             if (output != null && (output.Contains("Reading Track") || output.Contains("Writing Track") || output.Contains("Erasing Track")))
             {
                 tracks = output.Substring(14, output.IndexOf('.') - 14);
                 sides = output.Substring(output.IndexOf('.') + 1, 1);
                 byte.TryParse(tracks, out track);
                 byte.TryParse(sides, out side);
+                if (output.Contains("Command Failed"))
+                {
+                    cleanExit = false;
+                    DrawSector(track, side, 3, true);
+                }
+                else if (output.Contains("Reading Track"))
+                {
+                    DrawSector(track, side, 1, true);
+                }
+                else if (output.Contains("Writing Track") || output.Contains("Erasing Track"))
+                {
+                    DrawSector(track, side, 2, true);
+                }
+                
                 tsslStatus.Text = output;
-                trackMap[track, side] = 1;
-                DrawSector(track, side, 1);
-            }
-            if (output != null && output.Contains("Command Failed"))
-            {
-                errors = output.Substring(output.IndexOf("Command Failed"));
-                tsslStatus.Text = errors;
-                cleanExit = false;
-                trackMap[track, side] = 3;
-                DrawSector(track, side, 3);
             }
         }
 
@@ -238,7 +247,7 @@ namespace GW_GUI
                 strImageName = saveFileDialog1.FileName;
                 tsslStatus.Text = "Reading...";
                 cleanExit = true;
-                RunCmdAsync("gw", "read --revs " + numPasses.Value.ToString() + " --scyl " + numStart.Value.ToString() + " --ecyl " + numEnd.Value.ToString() + (rbSingle.Checked ? " --single-sided" : "") + " --rate " + (rbDD.Checked ? "250" : "500")  + " \"" + strImageName + "\"");
+                gwProcess = RunCmdAsync("gw", "read --revs " + numPasses.Value.ToString() + " --scyl " + numStart.Value.ToString() + " --ecyl " + numEnd.Value.ToString() + (rbSingle.Checked ? " --single-sided" : "") + " --rate " + (rbDD.Checked ? "250" : "500")  + " \"" + strImageName + "\"");
             }
             else
             {
@@ -259,7 +268,7 @@ namespace GW_GUI
                     strImageName = openFileDialog1.FileName;
                     tsslStatus.Text = "Writing...";
                     cleanExit = true;
-                    RunCmdAsync("gw", "write --scyl " + numStart.Value.ToString() + " --ecyl " + numEnd.Value.ToString() + (rbSingle.Checked ? " --single-sided" : "") + " \"" + strImageName + "\"");
+                    gwProcess = RunCmdAsync("gw", "write --scyl " + numStart.Value.ToString() + " --ecyl " + numEnd.Value.ToString() + (rbSingle.Checked ? " --single-sided" : "") + " \"" + strImageName + "\"");
                 }
                 else
                 {
@@ -281,7 +290,7 @@ namespace GW_GUI
             {
                 tsslStatus.Text = "Erasing...";
                 cleanExit = true;
-                RunCmdAsync("gw", "erase --scyl " + numStart.Value.ToString() + " --ecyl " + numEnd.Value.ToString() + (rbSingle.Checked ? " --single-sided" : ""));
+                gwProcess = RunCmdAsync("gw", "erase --scyl " + numStart.Value.ToString() + " --ecyl " + numEnd.Value.ToString() + (rbSingle.Checked ? " --single-sided" : ""));
             }
             else
             {
@@ -297,6 +306,10 @@ namespace GW_GUI
 
         private void btnQuit_Click(object sender, EventArgs e)
         {
+            if (gwProcess!=null)
+            {
+                gwProcess.Close();
+            }
             Application.Exit();
         }
 
