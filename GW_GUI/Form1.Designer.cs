@@ -149,8 +149,7 @@
             // saveFileDialog1
             // 
             this.saveFileDialog1.DefaultExt = "scp";
-            this.saveFileDialog1.Filter = "SuperCard Pro|*.scp|Interchangeable Preservation Format|*.ipf|HxC Floppy Emulator" +
-    "|*.hfe|All files|*.*";
+            this.saveFileDialog1.Filter = "SuperCard Pro|*.scp|HxC Floppy Emulator|*.hfe|AmigaDOS|*.adf|All files|*.*";
             this.saveFileDialog1.Title = "Save Disk Image As...";
             // 
             // pnlSetup
@@ -494,7 +493,7 @@
             // 
             this.openFileDialog1.DefaultExt = "scp";
             this.openFileDialog1.Filter = "SuperCard Pro|*.scp|Interchangeable Preservation Format|*.ipf|HxC Floppy Emulator" +
-    "|*.hfe|All files|*.*";
+    "|*.hfe|AmigaDOS|*.adf|All files|*.*";
             this.openFileDialog1.Title = "Open Disk Image...";
             // 
             // btnInfo

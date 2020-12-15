@@ -21,6 +21,7 @@ namespace GW_GUI
         static byte maxSide = 2;
         static int cellHeight = 80;
         static int cellWidth = 9;
+        static char mode;
 
         bool cleanExit = true;
         byte[,] trackMap = new byte[maxTrack, maxSide];
@@ -168,28 +169,36 @@ namespace GW_GUI
             byte track = 0, side = 0;
             string tracks, sides;
             string output = Convert.ToString(outLine.Data);
-
-            if (output != null && (output.Contains("Reading Track") || output.Contains("Writing Track") || output.Contains("Erasing Track")))
+            tsslStatus.Text = output;
+            if (output != null)
             {
-                tracks = output.Substring(14, output.IndexOf('.') - 14);
-                sides = output.Substring(output.IndexOf('.') + 1, 1);
-                byte.TryParse(tracks, out track);
-                byte.TryParse(sides, out side);
-                if (output.Contains("Command Failed"))
+                if (output.Contains("Reading"))
+                    mode = 'R';
+                else if (output.Contains("Writing"))
+                    mode = 'W';
+                else if (output.Contains("Erasing"))
+                    mode = 'E';
+                else if (output.Contains("T"))
                 {
-                    cleanExit = false;
-                    DrawSector(track, side, 3, true);
+                    tsslStatus.Text = output;
+                    tracks = output.Substring(1, output.IndexOf('.') - 1);
+                    sides = output.Substring(output.IndexOf('.') + 1, 1);
+                    byte.TryParse(tracks, out track);
+                    byte.TryParse(sides, out side);
+                    if (output.Contains("Command Failed"))
+                    {
+                        cleanExit = false;
+                        DrawSector(track, side, 3, true);
+                    }
+                    else if (mode == 'R')
+                    {
+                        DrawSector(track, side, 1, true);
+                    }
+                    else if (mode == 'W' || mode == 'E')
+                    {
+                        DrawSector(track, side, 2, true);
+                    }
                 }
-                else if (output.Contains("Reading Track"))
-                {
-                    DrawSector(track, side, 1, true);
-                }
-                else if (output.Contains("Writing Track") || output.Contains("Erasing Track"))
-                {
-                    DrawSector(track, side, 2, true);
-                }
-                
-                tsslStatus.Text = output;
             }
         }
 
@@ -197,12 +206,12 @@ namespace GW_GUI
         {
             if (File.Exists("gw"))
             {
-                string output = RunCmdSync("gw", "reset");
+                string output = RunCmdSync("gw", "info");
 
-                if (output != null && output.Contains("** Greaseweazle"))
+                if (output != null && output.Contains("Greaseweazle"))
                 {
-                    string hw = output.Substring(output.IndexOf("** ") + 3, output.IndexOf(',') - 3);
-                    string sw = output.Substring(output.IndexOf(",") + 2);
+                    string hw = output.Substring(output.IndexOf("Model: ") + 10, 2);
+                    string sw = output.Substring(output.IndexOf("Firmware: ") + 10, 5);
                     this.Text += " | " + hw + " | " + sw;
                 }
                 else
