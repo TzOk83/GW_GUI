@@ -122,8 +122,10 @@ namespace GW_GUI
         {
             // Create Process
             Process process = new Process();
-            process.StartInfo.FileName = @"python.exe";
-            process.StartInfo.Arguments = string.Format("-u \"{0}\" {1}", cmd, args);
+            process.StartInfo.FileName = @"D:\Program Files\Greaseweazle\gw.exe";
+            //process.StartInfo.FileName = @"python.exe";
+            //process.StartInfo.Arguments = string.Format("-u \"{0}\" {1}", cmd, args);
+            process.StartInfo.Arguments = args;
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.CreateNoWindow = true;
             process.StartInfo.RedirectStandardOutput = true;
@@ -142,8 +144,10 @@ namespace GW_GUI
             string result;
             // Create Process
             Process process = new Process();
-            process.StartInfo.FileName = @"python.exe";
-            process.StartInfo.Arguments = string.Format("-u \"{0}\" {1}", cmd, args);
+            process.StartInfo.FileName = @"D:\Program Files\Greaseweazle\gw.exe";
+            //process.StartInfo.FileName = @"python.exe";
+            //process.StartInfo.Arguments = string.Format("-u \"{0}\" {1}", cmd, args);
+            process.StartInfo.Arguments = args;
             process.StartInfo.UseShellExecute = false;
             process.StartInfo.CreateNoWindow = true;
             process.StartInfo.RedirectStandardOutput = true;
@@ -208,7 +212,7 @@ namespace GW_GUI
             {
                 string output = RunCmdSync("gw", "info");
 
-                if (output != null && output.Contains("Greaseweazle"))
+                if (output != null && output.Contains("F1"))
                 {
                     string hw = output.Substring(output.IndexOf("Model: ") + 10, 2);
                     string sw = output.Substring(output.IndexOf("Firmware: ") + 10, 5);
